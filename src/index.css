@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Oswald', sans-serif;
+
+  --color-btq-black: #000000;
+  --color-btq-dark: #121212;
+  --color-btq-gray: #1E1E1E;
+  --color-btq-white: #FFFFFF;
+}
+
+@utility bg-btq-dark {
+  background-color: var(--color-btq-dark);
+}
+
+@utility text-btq-white {
+  color: var(--color-btq-white);
+}
+
+@utility font-heading {
+  font-family: var(--font-heading);
+}
+
+/* Re-applying my custom styles using v4 syntax or just standard CSS with @apply if supported, 
+   but with @import "tailwindcss", @apply works. 
+*/
+
+@layer base {
+  body {
+    @apply bg-btq-dark text-btq-white font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading uppercase;
+  }
+}
