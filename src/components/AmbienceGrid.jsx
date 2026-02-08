@@ -6,7 +6,7 @@ import imgCloseup from '../assets/ambience/clouseup.webp';
 
 export default function AmbienceGrid() {
     const images = [
-        { src: imgEmbers, span: 'md:col-span-2 md:row-span-2 col-span-2 row-span-2' }, // Feature (Big)
+        { src: imgEmbers, span: 'md:col-span-2 md:row-span-2 col-span-2 row-span-1' }, // Feature (Big)
         { src: imgDrink, span: 'col-span-1 row-span-1' },
         { src: imgBurger, span: 'col-span-1 row-span-1' },
         { src: imgPasties, span: 'col-span-1 row-span-1' }, // Was wide, now square to fit symmetry
@@ -17,7 +17,7 @@ export default function AmbienceGrid() {
         <section id="ambience" className="py-20 bg-btq-dark px-4">
             <div className="container mx-auto max-w-5xl">
 
-                <div className="grid grid-cols-2 md:grid-cols-4 grid-rows-2 gap-4 h-[600px]">
+                <div className="grid grid-cols-2 md:grid-cols-4 md:grid-rows-2 gap-4 h-auto md:h-[600px] auto-rows-[200px]">
                     {images.map((img, idx) => (
                         <div key={idx} className={`relative overflow-hidden group ${img.span}`}>
                             <img
