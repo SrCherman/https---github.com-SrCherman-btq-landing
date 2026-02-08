@@ -1,19 +1,23 @@
+import { Suspense, lazy } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import AmbienceGrid from './components/AmbienceGrid';
-import MenuHighlights from './components/MenuHighlights';
-import InfoLocation from './components/InfoLocation';
-import Footer from './components/Footer';
+
+const AmbienceGrid = lazy(() => import('./components/AmbienceGrid'));
+const MenuHighlights = lazy(() => import('./components/MenuHighlights'));
+const InfoLocation = lazy(() => import('./components/InfoLocation'));
+const Footer = lazy(() => import('./components/Footer'));
 
 function App() {
   return (
     <div className="min-h-screen flex flex-col bg-btq-dark text-btq-white font-sans selection:bg-gray-700 selection:text-white">
       <Navbar />
       <Hero />
-      <AmbienceGrid />
-      <MenuHighlights />
-      <InfoLocation />
-      <Footer />
+      <Suspense fallback={<div className="py-20 text-center">Carregando...</div>}>
+        <AmbienceGrid />
+        <MenuHighlights />
+        <InfoLocation />
+        <Footer />
+      </Suspense>
     </div>
   );
 }
